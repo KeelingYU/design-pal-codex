@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>design-pal · 组件库预览</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="preview.css?v=20260926-nav">
+  <script src="preview-model.js?v=20260926-nav" defer></script>
+  <script src="icons.js" defer></script>
+  <script src="backend-components.js" defer></script>
+  <script src="preview.js?v=20260926-nav" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#preview-panel">跳到预览</a>
+  <header class="tool-header" aria-label="预览控制">
+    <a class="brand" href="./index.html?rev=20260926-nav" aria-label="返回组件库首页">design-pal<span>.</span></a>
+    <div id="current-library" class="current-library"></div>
+    <div class="appearance"><span class="control-label">颜色主题</span><div id="color-tabs" class="color-tabs" role="tablist" aria-label="颜色主题"></div><div class="mode-picker" role="group" aria-label="显示模式"><button data-mode="light">亮色</button><button data-mode="dark">暗色</button></div></div>
+  </header>
+  <nav class="tool-subbar" aria-label="预览内容控制">
+    <div class="view-tabs" role="tablist" aria-label="预览内容"><button role="tab" id="tab-components" data-view="components" aria-controls="preview-panel">组件总览</button><button role="tab" id="tab-layout" data-view="layout" aria-controls="preview-panel">页面预览</button><button role="tab" id="tab-info" data-view="info" aria-controls="preview-panel">库说明</button></div>
+  </nav>
+  <div class="detail-shell">
+    <aside id="detail-sidebar" class="detail-sidebar" aria-label="预览侧栏"></aside>
+    <main id="preview-panel" class="specimen" role="tabpanel" tabindex="-1" data-library="order" data-mode="light"></main>
+  </div>
+  <dialog id="demo-dialog" class="specimen demo-dialog" aria-labelledby="dialog-title"></dialog>
+  <dialog id="confirm-dialog" class="specimen confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">归档这条演示记录？</h2><p>这里只体验确认与取消，不会操作真实项目数据。</p><div class="dialog-actions"><button class="btn secondary" data-backend="cancel-confirm">取消归档</button><button class="btn" data-backend="accept-confirm">确认归档</button></div></dialog>
+  <div class="toast specimen" id="toast" role="status" hidden></div>
+</body>
+</html>

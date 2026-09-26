@@ -1,0 +1,9 @@
+{
+  "name": "design-pal-codex",
+  "version": "0.0.0",
+  "private": true,
+  "description": "电脑端工具类组件库的交互样稿",
+  "license": "MIT",
+  "engines": { "node": ">=24" },
+  "scripts": { "test": "node --test examples/preview/preview.test.cjs" }
+}

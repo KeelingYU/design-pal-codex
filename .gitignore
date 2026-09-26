@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+__MACOSX/
+.env
+.env.*
+*credential*
+*.key
+*.pem
+CLAUDE.local.md
+test-results/
+playwright-report/
