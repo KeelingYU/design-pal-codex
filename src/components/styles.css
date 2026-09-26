@@ -1,0 +1,61 @@
+/* 样式仅作用于本项目组件区域；不修改宿主页面的基础样式。 */
+.dpc-root {
+  --radius: 4px; --gap: 20px; --duration: 160ms; --ease: cubic-bezier(.2,0,.2,1);
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size: 14px; font-synthesis: none; color: var(--text); background: var(--canvas); color-scheme: light;
+}
+.dpc-root, .dpc-root * { box-sizing: border-box; }
+.dpc-root[data-mode=dark] { color-scheme: dark; }
+.dpc-root[data-library=ease] { --radius: 18px; --gap: 30px; --duration: 320ms; --ease: cubic-bezier(.2,.8,.2,1.2); }
+.dpc-root[data-library=edge] { --radius: 0px; --gap: 16px; --duration: 120ms; --ease: steps(4,end); }
+.dpc-root [hidden] { display: none !important; }
+.dpc-root :is(button,input) { font: inherit; color: inherit; transition: background var(--duration) var(--ease),box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease); }
+.dpc-root button { cursor: pointer; touch-action: manipulation; }
+.dpc-root button:disabled { cursor: not-allowed; }
+.dpc-root :is(button,input,a):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.dpc-root .dpc-icon { width: 20px; height: 20px; flex-shrink: 0; vertical-align: middle; }
+.dpc-root[data-library=ease] .dpc-icon { width: 22px; height: 22px; }
+.dpc-root[data-library=edge] .dpc-icon { width: 18px; height: 18px; }
+.dpc-root .dpc-button-glyph { display: inline-flex; }
+.dpc-root .dpc-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 38px; padding: 9px 15px; border-radius: var(--radius); border: 1px solid transparent; background: var(--accent); color: var(--onAccent) !important; font-size: 12px; font-weight: 550; line-height: 1.3; white-space: nowrap; }
+.dpc-root .dpc-btn.dpc-secondary { background: var(--surface); color: var(--text) !important; border-color: var(--line); }
+.dpc-root .dpc-btn.dpc-ghost { background: transparent; border: 0; color: var(--accent) !important; padding-left: 0; min-height: 32px; }
+.dpc-root .dpc-btn:hover:not(:disabled) { box-shadow: inset 0 0 0 100px #00000013; }
+.dpc-root .dpc-btn:active:not(:disabled) { transform: translateY(1px); }
+.dpc-root .dpc-btn:disabled { opacity: .4; }
+.dpc-root .dpc-btn.dpc-loading { opacity: 1; }
+.dpc-root .dpc-btn.dpc-icon-btn { padding: 7px; min-height: 32px; }
+.dpc-root[data-library=ease] .dpc-btn:not(.dpc-ghost) { padding: 11px 18px; border-radius: 99px; }
+.dpc-root[data-library=ease] .dpc-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 6px 16px #00000016; }
+.dpc-root[data-library=edge] .dpc-btn { font-size: 11px; min-height: 33px; padding: 8px 12px; border-width: 1px; font-weight: 650; letter-spacing: .3px; }
+.dpc-root[data-library=edge] .dpc-btn:hover:not(:disabled) { box-shadow: 3px 3px 0 var(--line); transform: translate(-1px,-1px); }
+.dpc-root .dpc-spin { animation: dpc-spin .85s linear infinite; }
+.dpc-root[data-library=edge] .dpc-spin { animation-timing-function: steps(8,end); }
+.dpc-root .dpc-field { display: block; min-width: 0; }
+.dpc-root .dpc-field > label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.dpc-root .dpc-input { border: 1px solid var(--line); border-radius: var(--radius); padding: 11px 12px; background: var(--surface); color: var(--text); width: 100%; min-width: 0; font-size: 13px; }
+.dpc-root .dpc-input:hover:not(:disabled) { border-color: var(--muted); }
+.dpc-root .dpc-input[aria-invalid=true] { border-color: var(--danger); }
+.dpc-root .dpc-input:disabled { background: var(--raised); opacity: .6; cursor: not-allowed; }
+.dpc-root .dpc-field-hint { font-size: 11px; line-height: 1.7; color: var(--muted); margin: 7px 0 0; min-height: 19px; }
+.dpc-root .dpc-field-hint.dpc-error { color: var(--danger); }
+.dpc-root .dpc-detail-panel { border: 1px solid var(--line); padding: 30px; background: var(--surface); color: var(--text); width: 470px; max-width: calc(100% - 28px); border-radius: var(--radius); box-shadow: 0 20px 70px #00000024; }
+.dpc-root .dpc-detail-panel::backdrop { background: #10172066; backdrop-filter: blur(2px); }
+.dpc-root .dpc-detail-panel[open] { animation: dpc-slide-in var(--duration) var(--ease); }
+.dpc-root .dpc-detail-panel[data-detail-style=drawer] { margin: 0 0 0 auto; top: 0; height: 100dvh; max-height: 100dvh; width: 420px; border-radius: 0; border-right: 0; }
+.dpc-root .dpc-detail-panel[data-detail-style=modal] { padding: 36px; width: 520px; }
+.dpc-root .dpc-detail-panel[data-detail-style=modal][open] { animation: dpc-bounce-in var(--duration) var(--ease); }
+.dpc-root .dpc-detail-close { position: absolute; right: 18px; top: 15px; }
+.dpc-root .dpc-detail-panel > h2 { font-size: 23px; line-height: 1.5; margin: 0 0 14px; }
+.dpc-root .dpc-detail-panel > p { font-size: 13px; line-height: 1.9; color: var(--muted); margin: 0; }
+.dpc-root .dpc-detail-content { margin-top: 24px; font-size: 13px; line-height: 1.9; }
+.dpc-root .dpc-detail-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 28px; }
+.dpc-root .dpc-detail-panel[data-detail-style=inline] { position: relative; width: auto; max-width: none; padding: 22px; background: var(--canvas); margin-top: 18px; box-shadow: none; animation: dpc-reveal var(--duration) var(--ease); }
+.dpc-root .dpc-detail-panel[data-detail-style=inline] > h2 { font-size: 17px; padding-right: 32px; }
+@keyframes dpc-spin { to { transform: rotate(360deg); } }
+@keyframes dpc-slide-in { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes dpc-bounce-in { from { opacity: 0; transform: scale(.91) translateY(15px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes dpc-reveal { from { opacity: 0; clip-path: inset(0 100% 0 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+@media (prefers-reduced-motion: reduce) {
+  .dpc-root *, .dpc-root *::before, .dpc-root *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
