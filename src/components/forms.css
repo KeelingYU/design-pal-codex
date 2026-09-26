@@ -1,0 +1,41 @@
+/* 表单只使用所在区域的配色与库规则。 */
+.dpc-root :is(select,textarea) { font: inherit; color: inherit; transition: background var(--duration) var(--ease),box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease); }
+.dpc-root :is(select,textarea):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.dpc-root .dpc-form-field :is(select,textarea).dpc-input { font-size: 13px; }
+.dpc-root .dpc-option-field { border: 0; margin: 0; padding: 0; min-width: 0; }
+.dpc-root .dpc-option-field legend { font-size: 11px; color: var(--muted); margin-bottom: 10px; padding: 0; }
+.dpc-root .dpc-form-options label { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; margin: 0 9px 7px 0; }
+.dpc-root .dpc-form-options input { accent-color: var(--accent); width: 15px; height: 15px; vertical-align: middle; }
+.dpc-root .dpc-selected-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 7px; }
+.dpc-root .dpc-form-tag { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; font-size: 11px; padding: 4px 7px; border-radius: var(--radius); color: var(--accent); background: var(--tint); }
+.dpc-root .dpc-toggle-field { display: grid; grid-template-columns: max-content 1fr; gap: 0 12px; align-items: center; }
+.dpc-root .dpc-toggle-field > label { font-size: 12px; color: var(--text); margin: 0; }
+.dpc-root .dpc-toggle-field > .dpc-form-body { display: flex; align-items: center; font-size: 12px; }
+.dpc-root .dpc-toggle-field > .dpc-field-hint { grid-column: 1 / -1; }
+.dpc-root .dpc-switch { appearance: none; accent-color: var(--accent); background: var(--line); border: 0; width: 34px; height: 19px; position: relative; border-radius: 99px; margin: 0; cursor: pointer; display: block; }
+.dpc-root .dpc-switch::after { content: ''; position: absolute; left: 3px; top: 3px; width: 13px; height: 13px; background: var(--surface); border-radius: 50%; transition: transform var(--duration) var(--ease); }
+.dpc-root .dpc-switch:checked { background: var(--accent); }
+.dpc-root .dpc-switch:checked::after { transform: translateX(15px); background: var(--onAccent); }
+.dpc-root .dpc-switch:disabled { opacity: .4; cursor: not-allowed; }
+.dpc-root[data-library=edge] .dpc-switch,.dpc-root[data-library=edge] .dpc-switch::after { border-radius: 0; }
+.dpc-root[data-library=ease] .dpc-switch { width: 40px; height: 23px; }
+.dpc-root[data-library=ease] .dpc-switch::after { height: 17px; width: 17px; }
+.dpc-root[data-library=ease] .dpc-switch:checked::after { transform: translateX(17px); }
+.dpc-root .dpc-choice-group { display: flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.dpc-root .dpc-choice-group button { background: var(--surface); border: 0; color: var(--muted); padding: 8px 15px; font-size: 12px; }
+.dpc-root .dpc-choice-group button[aria-pressed=true] { color: var(--accent); background: var(--tint); }
+.dpc-root .dpc-choice-group button:disabled { opacity: .4; }
+.dpc-root .dpc-choice-group button:focus-visible { outline-offset: -3px; }
+.dpc-root .dpc-range { width: 100%; accent-color: var(--accent); margin: 11px 0; }
+.dpc-root .dpc-form-output { font-size: 11px; color: var(--muted); display: block; margin-top: 7px; }
+.dpc-root .dpc-date-inputs { display: flex; gap: 8px; align-items: center; }
+.dpc-root .dpc-date-inputs input { min-width: 0; flex: 1; }
+.dpc-root .dpc-date-inputs > span { font-size: 11px; color: var(--muted); }
+.dpc-root textarea.dpc-input { resize: vertical; min-height: 86px; line-height: 1.8; font-family: inherit; }
+.dpc-root .dpc-upload-box { display: flex; align-items: center; justify-content: center; gap: 9px; flex-wrap: wrap; border: 1px dashed var(--line); border-radius: var(--radius); padding: 20px 15px; color: var(--accent); background: var(--canvas); cursor: pointer; position: relative; }
+.dpc-root .dpc-upload-box strong { font-weight: 500; font-size: 12px; }
+.dpc-root .dpc-upload-box small { width: 100%; text-align: center; color: var(--muted); font-size: 11px; }
+.dpc-root .dpc-upload-box input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.dpc-root .dpc-upload-box:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.dpc-root .dpc-upload-box.dpc-disabled { opacity: .4; }
+.dpc-root .dpc-upload-box.dpc-disabled input { cursor: not-allowed; }

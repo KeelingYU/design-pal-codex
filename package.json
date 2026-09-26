@@ -1,6 +1,6 @@
 {
   "name": "design-pal-codex",
-  "version": "0.1.0-dev.1",
+  "version": "0.1.0-dev.2",
   "private": true,
   "license": "MIT",
   "engines": {
@@ -15,5 +15,5 @@
   "devDependencies": {
     "@playwright/test": "1.63.0"
   },
-  "description": "组件库交互样稿及首批可复用基础组件"
+  "description": "组件库交互样稿与可复用后台组件开发版"
 }

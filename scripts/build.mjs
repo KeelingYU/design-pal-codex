@@ -7,10 +7,23 @@ export const markerName = '.design-pal-codex-build.json';
 export const requiredFiles = [
   'index.mjs',
   'components/styles.css',
+  'components/dom.mjs',
+  'components/forms.mjs',
+  'components/forms.css',
+  'components/table.mjs',
+  'components/table.css',
+  'components/navigation.mjs',
+  'components/navigation.css',
+  'components/feedback.mjs',
+  'components/feedback.css',
   'libraries/catalog.mjs',
+  'libraries/component-list.mjs',
   'preview/index.html',
   'preview/foundation.mjs',
   'preview/foundation.css',
+  'preview/components.html',
+  'preview/components.mjs',
+  'preview/components.css',
   'assets/LICENSE-phosphor.txt',
 ];
 

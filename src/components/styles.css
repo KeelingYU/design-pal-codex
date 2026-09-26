@@ -1,3 +1,7 @@
+@import './table.css';
+@import './forms.css';
+@import './navigation.css';
+@import './feedback.css';
 /* 样式仅作用于本项目组件区域；不修改宿主页面的基础样式。 */
 .dpc-root {
   --radius: 4px; --gap: 20px; --duration: 160ms; --ease: cubic-bezier(.2,0,.2,1);
@@ -9,10 +13,10 @@
 .dpc-root[data-library=ease] { --radius: 18px; --gap: 30px; --duration: 320ms; --ease: cubic-bezier(.2,.8,.2,1.2); }
 .dpc-root[data-library=edge] { --radius: 0px; --gap: 16px; --duration: 120ms; --ease: steps(4,end); }
 .dpc-root [hidden] { display: none !important; }
-.dpc-root :is(button,input) { font: inherit; color: inherit; transition: background var(--duration) var(--ease),box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease); }
+.dpc-root :is(button,input,select,textarea) { font: inherit; color: inherit; transition: background var(--duration) var(--ease),box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease); }
 .dpc-root button { cursor: pointer; touch-action: manipulation; }
 .dpc-root button:disabled { cursor: not-allowed; }
-.dpc-root :is(button,input,a):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.dpc-root :is(button,input,select,textarea,a,summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .dpc-root .dpc-icon { width: 20px; height: 20px; flex-shrink: 0; vertical-align: middle; }
 .dpc-root[data-library=ease] .dpc-icon { width: 22px; height: 22px; }
 .dpc-root[data-library=edge] .dpc-icon { width: 18px; height: 18px; }

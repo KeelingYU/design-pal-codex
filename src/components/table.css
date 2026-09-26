@@ -1,0 +1,33 @@
+.dpc-root .dpc-table-component { min-width: 0; }
+.dpc-root .dpc-table-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.dpc-root .dpc-table-search { flex: 1; min-width: 190px; position: relative; display: flex; align-items: center; }
+.dpc-root .dpc-table-search .dpc-icon { position: absolute; left: 11px; pointer-events: none; color: var(--muted); width: 17px; }
+.dpc-root .dpc-table-search input { padding-left: 36px; }
+.dpc-root .dpc-table-filters { display: flex; flex-wrap: wrap; gap: 10px; }
+.dpc-root .dpc-table-filters select { width: 140px; font-size: 12px; }
+.dpc-root .dpc-table-tools > .dpc-btn { font-size: 11px; min-height: 37px; }
+.dpc-root .dpc-column-picker { position: relative; font-size: 11px; color: var(--muted); margin-left: auto; }
+.dpc-root .dpc-column-picker summary { cursor: pointer; padding: 9px; }
+.dpc-root .dpc-column-picker > div { position: absolute; right: 0; z-index: 3; background: var(--surface); border: 1px solid var(--line); padding: 12px 15px; min-width: 130px; border-radius: var(--radius); box-shadow: 0 6px 20px #00000015; }
+.dpc-root .dpc-column-picker label { display: flex; gap: 7px; align-items: center; white-space: nowrap; padding: 6px 0; }
+.dpc-root .dpc-table-component input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; vertical-align: middle; }
+.dpc-root .dpc-batch-bar, .dpc-root .dpc-batch-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.dpc-root .dpc-batch-bar { margin: 13px 0; font-size: 11px; color: var(--muted); }
+.dpc-root .dpc-batch-bar .dpc-btn { font-size: 11px; }
+.dpc-root .dpc-table-wrap { overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.dpc-root .dpc-data-table { border-collapse: collapse; width: 100%; font-size: 13px; white-space: nowrap; }
+.dpc-root .dpc-data-table th { text-align: left; padding: 15px 20px; font-size: 11px; font-weight: 500; color: var(--muted); background: var(--raised); border-bottom: 1px solid var(--line); }
+.dpc-root .dpc-data-table th > button { background: none; border: 0; padding: 0; text-align: left; font: inherit; color: inherit; }
+.dpc-root .dpc-data-table td { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.dpc-root .dpc-data-table th:first-child, .dpc-root .dpc-data-table td:first-child { width: 44px; padding-left: 15px; padding-right: 6px; }
+.dpc-root .dpc-data-table tr:last-child td { border-bottom: 0; }
+.dpc-root .dpc-data-table tbody tr:hover { background: var(--canvas); }
+.dpc-root .dpc-table-mark { display: inline-flex; background: var(--tint); color: var(--accent); border-radius: var(--radius); padding: 4px 7px; font-size: 9px; margin-left: 8px; }
+.dpc-root .dpc-table-tag { display: inline-flex; background: var(--tint); color: var(--accent); border-radius: var(--radius); padding: 4px 7px; font-size: 11px; }
+.dpc-root .dpc-table-empty { text-align: center; color: var(--muted); padding: 30px !important; }
+.dpc-root .dpc-pagination { display: flex; gap: 20px; align-items: center; justify-content: flex-end; flex-wrap: wrap; padding-top: 16px; font-size: 11px; color: var(--muted); }
+.dpc-root .dpc-pagination > span { margin-right: auto; }
+.dpc-root .dpc-pagination > label { display: flex; align-items: center; gap: 8px; }
+.dpc-root .dpc-pagination select { font: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px; color: var(--text); font-size: 11px; }
+.dpc-root .dpc-pagination [role=group] { display: flex; gap: 7px; flex-wrap: wrap; }
+.dpc-root .dpc-pagination .dpc-btn { font-size: 11px; padding: 6px 10px; min-height: 30px; }

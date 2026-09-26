@@ -8,9 +8,13 @@ for (const [libraryId, library] of Object.entries(libraries)) {
   heading.textContent = library.name;
   const description = document.createElement('p');
   description.textContent = `${library.description} ${library.shape}。`;
+  const catalogLink = document.createElement('a');
+  catalogLink.className = 'catalog-link';
+  catalogLink.href = `./components.html?library=${libraryId}`;
+  catalogLink.textContent = `检查${library.name}的全部组件`;
   const grid = document.createElement('div');
   grid.className = 'instance-grid';
-  section.append(heading, description, grid);
+  section.append(heading, description, catalogLink, grid);
   list.append(section);
   for (let index = 0; index < 2; index++) {
     const host = document.createElement('article');

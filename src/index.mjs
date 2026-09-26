@@ -3,6 +3,10 @@ import { resolveAppearance, paintAppearance } from './libraries/appearance.mjs';
 import { mountButton } from './components/button.mjs';
 import { mountInput } from './components/input.mjs';
 import { mountDetails } from './components/details.mjs';
+import { mountTable } from './components/table.mjs';
+import { formFactories } from './components/forms.mjs';
+import { navigationFactories } from './components/navigation.mjs';
+import { feedbackFactories } from './components/feedback.mjs';
 export { libraries } from './libraries/catalog.mjs';
 
 export function createSurface(container, options = {}) {
@@ -24,7 +28,7 @@ export function createSurface(container, options = {}) {
     return component;
   }
   container.append(element);
-  return {
+  const surface = {
     element,
     get appearance() { return { library: appearance.library, color: appearance.color, mode: appearance.mode }; },
     setAppearance(patch = {}) {
@@ -36,6 +40,7 @@ export function createSurface(container, options = {}) {
     button(props, target = element) { return attach(mountButton, props, target); },
     input(props, target = element) { return attach(mountInput, props, target); },
     details(props, target = element) { return attach(mountDetails, props, target); },
+    table(props, target = element) { return attach(mountTable, props, target); },
     destroy() {
       if (!alive) return;
       alive = false;
@@ -43,4 +48,8 @@ export function createSurface(container, options = {}) {
       element.remove();
     },
   };
+  for (const [name, factory] of Object.entries({ ...formFactories, ...navigationFactories, ...feedbackFactories })) {
+    surface[name] = (props, target = element) => attach(factory, props, target);
+  }
+  return surface;
 }
