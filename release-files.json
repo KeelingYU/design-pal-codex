@@ -1,0 +1,494 @@
+{
+  "project": "design-pal-codex",
+  "license": "MIT",
+  "files": [
+    {
+      "source": "README.md",
+      "target": "README.md"
+    },
+    {
+      "source": "AGENTS.md",
+      "target": "AGENTS.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "CLAUDE.md"
+    },
+    {
+      "source": ".gitignore",
+      "target": ".gitignore"
+    },
+    {
+      "source": "package.json",
+      "target": "package.json"
+    },
+    {
+      "source": "LICENSE",
+      "target": "LICENSE"
+    },
+    {
+      "source": "examples/preview/index.html",
+      "target": "examples/preview/index.html"
+    },
+    {
+      "source": "examples/preview/preview.html",
+      "target": "examples/preview/preview.html"
+    },
+    {
+      "source": "examples/preview/gallery.css",
+      "target": "examples/preview/gallery.css"
+    },
+    {
+      "source": "examples/preview/gallery.js",
+      "target": "examples/preview/gallery.js"
+    },
+    {
+      "source": "examples/preview/preview.css",
+      "target": "examples/preview/preview.css"
+    },
+    {
+      "source": "examples/preview/preview.js",
+      "target": "examples/preview/preview.js"
+    },
+    {
+      "source": "examples/preview/preview-model.js",
+      "target": "examples/preview/preview-model.js"
+    },
+    {
+      "source": "examples/preview/backend-components.js",
+      "target": "examples/preview/backend-components.js"
+    },
+    {
+      "source": "examples/preview/icons.js",
+      "target": "examples/preview/icons.js"
+    },
+    {
+      "source": "examples/preview/preview.test.cjs",
+      "target": "examples/preview/preview.test.cjs"
+    },
+    {
+      "source": "examples/preview/test-fixtures/sample.csv",
+      "target": "examples/preview/test-fixtures/sample.csv"
+    },
+    {
+      "source": "examples/preview/assets/LICENSE-phosphor.txt",
+      "target": "examples/preview/assets/LICENSE-phosphor.txt"
+    },
+    {
+      "source": "examples/preview/assets/来源.md",
+      "target": "examples/preview/assets/来源.md"
+    },
+    {
+      "source": "examples/preview/previews/order-indigo.jpg",
+      "target": "examples/preview/previews/order-indigo.jpg",
+      "binarySha256": "08a37bf3a7d840aaf788d75feda8c95bdb690bb5ecd9768b34d9bfc4d3ebed5b"
+    },
+    {
+      "source": "examples/preview/previews/order-slate.jpg",
+      "target": "examples/preview/previews/order-slate.jpg",
+      "binarySha256": "d8cd3467ea6a0259ed844c61eea050ddfd056c4faf303dae57a1ffb653a689fe"
+    },
+    {
+      "source": "examples/preview/previews/ease-clay.jpg",
+      "target": "examples/preview/previews/ease-clay.jpg",
+      "binarySha256": "9b6e37306bb96db1b0ef5636d00eb912b39e4c74248939483e4f7a58ecc035e8"
+    },
+    {
+      "source": "examples/preview/previews/ease-sage.jpg",
+      "target": "examples/preview/previews/ease-sage.jpg",
+      "binarySha256": "df4d6316ff28cc3bc0ba0ec73a79070c4e9ad5bef7a0759b15c541b9fa287adf"
+    },
+    {
+      "source": "examples/preview/previews/edge-ocean.jpg",
+      "target": "examples/preview/previews/edge-ocean.jpg",
+      "binarySha256": "467832b14ca57939ae10a17ec8a1195f02d923f032e1700aaf430205f6baa40e"
+    },
+    {
+      "source": "examples/preview/previews/edge-amber.jpg",
+      "target": "examples/preview/previews/edge-amber.jpg",
+      "binarySha256": "8d202070fe8f7eb0fda6d9ca8a7d3d28cf7d01175a3c5f7ffedc17c5237fda07"
+    },
+    {
+      "source": "src/assets/LICENSE-phosphor.txt",
+      "target": "src/assets/LICENSE-phosphor.txt"
+    },
+    {
+      "source": "src/assets/来源.md",
+      "target": "src/assets/来源.md"
+    },
+    {
+      "source": "src/components/button.mjs",
+      "target": "src/components/button.mjs"
+    },
+    {
+      "source": "src/components/details.mjs",
+      "target": "src/components/details.mjs"
+    },
+    {
+      "source": "src/components/icon.mjs",
+      "target": "src/components/icon.mjs"
+    },
+    {
+      "source": "src/components/input.mjs",
+      "target": "src/components/input.mjs"
+    },
+    {
+      "source": "src/components/lifecycle.mjs",
+      "target": "src/components/lifecycle.mjs"
+    },
+    {
+      "source": "src/components/styles.css",
+      "target": "src/components/styles.css"
+    },
+    {
+      "source": "src/index.mjs",
+      "target": "src/index.mjs"
+    },
+    {
+      "source": "src/libraries/appearance.mjs",
+      "target": "src/libraries/appearance.mjs"
+    },
+    {
+      "source": "src/libraries/catalog.mjs",
+      "target": "src/libraries/catalog.mjs"
+    },
+    {
+      "source": "src/libraries/icons.mjs",
+      "target": "src/libraries/icons.mjs"
+    },
+    {
+      "source": "src/preview/foundation.css",
+      "target": "src/preview/foundation.css"
+    },
+    {
+      "source": "src/preview/foundation.mjs",
+      "target": "src/preview/foundation.mjs"
+    },
+    {
+      "source": "src/preview/index.html",
+      "target": "src/preview/index.html"
+    },
+    {
+      "source": "scripts/build.mjs",
+      "target": "scripts/build.mjs"
+    },
+    {
+      "source": "scripts/preview-server.mjs",
+      "target": "scripts/preview-server.mjs"
+    },
+    {
+      "source": "playwright.config.mjs",
+      "target": "playwright.config.mjs"
+    },
+    {
+      "source": "package-lock.json",
+      "target": "package-lock.json"
+    },
+    {
+      "source": "tests/unit/appearance.test.mjs",
+      "target": "tests/unit/appearance.test.mjs"
+    },
+    {
+      "source": "tests/unit/build.test.mjs",
+      "target": "tests/unit/build.test.mjs"
+    },
+    {
+      "source": "tests/unit/server.test.mjs",
+      "target": "tests/unit/server.test.mjs"
+    },
+    {
+      "source": "tests/browser/foundation.spec.mjs",
+      "target": "tests/browser/foundation.spec.mjs"
+    },
+    {
+      "source": "USAGE.md",
+      "target": "USAGE.md"
+    },
+    {
+      "source": "src/components/dom.mjs",
+      "target": "src/components/dom.mjs"
+    },
+    {
+      "source": "src/components/feedback.css",
+      "target": "src/components/feedback.css"
+    },
+    {
+      "source": "src/components/feedback.mjs",
+      "target": "src/components/feedback.mjs"
+    },
+    {
+      "source": "src/components/forms.css",
+      "target": "src/components/forms.css"
+    },
+    {
+      "source": "src/components/forms.mjs",
+      "target": "src/components/forms.mjs"
+    },
+    {
+      "source": "src/components/navigation.css",
+      "target": "src/components/navigation.css"
+    },
+    {
+      "source": "src/components/navigation.mjs",
+      "target": "src/components/navigation.mjs"
+    },
+    {
+      "source": "src/components/table.css",
+      "target": "src/components/table.css"
+    },
+    {
+      "source": "src/components/table.mjs",
+      "target": "src/components/table.mjs"
+    },
+    {
+      "source": "src/libraries/component-list.mjs",
+      "target": "src/libraries/component-list.mjs"
+    },
+    {
+      "source": "src/preview/components.css",
+      "target": "src/preview/components.css"
+    },
+    {
+      "source": "src/preview/components.html",
+      "target": "src/preview/components.html"
+    },
+    {
+      "source": "src/preview/components.mjs",
+      "target": "src/preview/components.mjs"
+    },
+    {
+      "source": "tests/browser/catalog.spec.mjs",
+      "target": "tests/browser/catalog.spec.mjs"
+    },
+    {
+      "source": "tests/browser/feedback.spec.mjs",
+      "target": "tests/browser/feedback.spec.mjs"
+    },
+    {
+      "source": "tests/browser/forms.spec.mjs",
+      "target": "tests/browser/forms.spec.mjs"
+    },
+    {
+      "source": "tests/browser/navigation.spec.mjs",
+      "target": "tests/browser/navigation.spec.mjs"
+    },
+    {
+      "source": "tests/browser/table.spec.mjs",
+      "target": "tests/browser/table.spec.mjs"
+    },
+    {
+      "source": "FORMS.md",
+      "target": "FORMS.md"
+    },
+    {
+      "source": "NAVIGATION.md",
+      "target": "NAVIGATION.md"
+    },
+    {
+      "source": "FEEDBACK.md",
+      "target": "FEEDBACK.md"
+    },
+    {
+      "source": "TABLE.md",
+      "target": "TABLE.md"
+    },
+    {
+      "source": "src/preview/catalog-view.css",
+      "target": "src/preview/catalog-view.css"
+    },
+    {
+      "source": "src/preview/catalog-view.mjs",
+      "target": "src/preview/catalog-view.mjs"
+    },
+    {
+      "source": "src/preview/demo-data.mjs",
+      "target": "src/preview/demo-data.mjs"
+    },
+    {
+      "source": "src/preview/foundation.html",
+      "target": "src/preview/foundation.html"
+    },
+    {
+      "source": "src/preview/gallery-state.mjs",
+      "target": "src/preview/gallery-state.mjs"
+    },
+    {
+      "source": "src/preview/gallery.css",
+      "target": "src/preview/gallery.css"
+    },
+    {
+      "source": "src/preview/gallery.mjs",
+      "target": "src/preview/gallery.mjs"
+    },
+    {
+      "source": "src/preview/preview-state.mjs",
+      "target": "src/preview/preview-state.mjs"
+    },
+    {
+      "source": "src/preview/preview.css",
+      "target": "src/preview/preview.css"
+    },
+    {
+      "source": "src/preview/preview.html",
+      "target": "src/preview/preview.html"
+    },
+    {
+      "source": "src/preview/preview.mjs",
+      "target": "src/preview/preview.mjs"
+    },
+    {
+      "source": "src/preview/previews/ease-clay.jpg",
+      "target": "src/preview/previews/ease-clay.jpg",
+      "binarySha256": "3f9d9ced88281184da3de8087fe25abe3c5b7f3b3cf7ee0d1bd2126935545093"
+    },
+    {
+      "source": "src/preview/previews/ease-sage.jpg",
+      "target": "src/preview/previews/ease-sage.jpg",
+      "binarySha256": "bf37f540d7fd13e3d501dc76448f5995b05f09815a4c70eded43264bd2882f54"
+    },
+    {
+      "source": "src/preview/previews/edge-amber.jpg",
+      "target": "src/preview/previews/edge-amber.jpg",
+      "binarySha256": "1d91b8704913c27a4db22e6bd8336b29170a85ff333959d3ee78b2c5cfa10d20"
+    },
+    {
+      "source": "src/preview/previews/edge-ocean.jpg",
+      "target": "src/preview/previews/edge-ocean.jpg",
+      "binarySha256": "2412e404fd9b5d8ff7119d86f93163b6a7cffed54f6720bbddeb74acd688aa2b"
+    },
+    {
+      "source": "src/preview/previews/order-indigo.jpg",
+      "target": "src/preview/previews/order-indigo.jpg",
+      "binarySha256": "32bf0a923fa4dfcd170970c23ee415463b652634c53324dadabcc29aed3fe08c"
+    },
+    {
+      "source": "src/preview/previews/order-slate.jpg",
+      "target": "src/preview/previews/order-slate.jpg",
+      "binarySha256": "66d636b5220d5d3e9ed425ef81043c865b61d94b71090278e1df5fa7c15dc604"
+    },
+    {
+      "source": "src/preview/workbench-view.css",
+      "target": "src/preview/workbench-view.css"
+    },
+    {
+      "source": "src/preview/workbench-view.mjs",
+      "target": "src/preview/workbench-view.mjs"
+    },
+    {
+      "source": "tests/browser/formal-catalog.spec.mjs",
+      "target": "tests/browser/formal-catalog.spec.mjs"
+    },
+    {
+      "source": "tests/browser/gallery.spec.mjs",
+      "target": "tests/browser/gallery.spec.mjs"
+    },
+    {
+      "source": "tests/browser/preview-shell.spec.mjs",
+      "target": "tests/browser/preview-shell.spec.mjs"
+    },
+    {
+      "source": "tests/browser/workbench.spec.mjs",
+      "target": "tests/browser/workbench.spec.mjs"
+    },
+    {
+      "source": "tests/unit/gallery.test.mjs",
+      "target": "tests/unit/gallery.test.mjs"
+    },
+    {
+      "source": "tests/unit/preview-state.test.mjs",
+      "target": "tests/unit/preview-state.test.mjs"
+    },
+    {
+      "source": "scripts/capture-previews.mjs",
+      "target": "scripts/capture-previews.mjs"
+    },
+    {
+      "source": "scripts/release.mjs",
+      "target": "scripts/release.mjs"
+    },
+    {
+      "source": "RELEASE.md",
+      "target": "RELEASE.md"
+    },
+    {
+      "source": "tests/unit/release.test.mjs",
+      "target": "tests/unit/release.test.mjs"
+    },
+    {
+      "source": "release-files.json",
+      "target": "release-files.json"
+    },
+    {
+      "source": "scripts/install-skills.mjs",
+      "target": "scripts/install-skills.mjs"
+    },
+    {
+      "source": "skills/design-pal-codex/SKILL.md",
+      "target": "skills/design-pal-codex/SKILL.md"
+    },
+    {
+      "source": "skills/design-pal-codex/agents/openai.yaml",
+      "target": "skills/design-pal-codex/agents/openai.yaml"
+    },
+    {
+      "source": "skills/design-pal-codex/references/workflow.md",
+      "target": "skills/design-pal-codex/references/workflow.md"
+    },
+    {
+      "source": "scripts/export-public.mjs",
+      "target": "scripts/export-public.mjs"
+    },
+    {
+      "source": "SKILLS.md",
+      "target": "SKILLS.md"
+    },
+    {
+      "source": "tests/unit/install-skills.test.mjs",
+      "target": "tests/unit/install-skills.test.mjs"
+    },
+    {
+      "source": "examples/acceptance/index.html",
+      "target": "examples/acceptance/index.html"
+    },
+    {
+      "source": "examples/acceptance/baseline.html",
+      "target": "examples/acceptance/baseline.html"
+    },
+    {
+      "source": "examples/acceptance/page.css",
+      "target": "examples/acceptance/page.css"
+    },
+    {
+      "source": "examples/acceptance/page.mjs",
+      "target": "examples/acceptance/page.mjs"
+    },
+    {
+      "source": "examples/acceptance/baseline.mjs",
+      "target": "examples/acceptance/baseline.mjs"
+    },
+    {
+      "source": "examples/acceptance/model.mjs",
+      "target": "examples/acceptance/model.mjs"
+    },
+    {
+      "source": "examples/acceptance/serve.mjs",
+      "target": "examples/acceptance/serve.mjs"
+    },
+    {
+      "source": "EXAMPLES.md",
+      "target": "EXAMPLES.md"
+    },
+    {
+      "source": "scripts/project.mjs",
+      "target": "scripts/project.mjs"
+    },
+    {
+      "source": "tests/unit/project.test.mjs",
+      "target": "tests/unit/project.test.mjs"
+    },
+    {
+      "source": "PROJECT.md",
+      "target": "PROJECT.md"
+    }
+  ]
+}

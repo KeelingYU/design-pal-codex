@@ -1,6 +1,6 @@
 {
   "name": "design-pal-codex",
-  "version": "0.1.0-dev.3",
+  "version": "0.1.0-dev.4",
   "private": true,
   "license": "MIT",
   "engines": {
@@ -11,7 +11,9 @@
     "preview": "node scripts/preview-server.mjs",
     "test": "node --test examples/preview/preview.test.cjs tests/unit/*.test.mjs",
     "test:browser": "playwright test",
-    "capture:previews": "node scripts/capture-previews.mjs"
+    "capture:previews": "node scripts/capture-previews.mjs",
+    "release": "node scripts/release.mjs",
+    "example": "node examples/acceptance/serve.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"
