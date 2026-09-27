@@ -38,6 +38,18 @@ test('重复构建移除过期资源，并刷新当前资源', async t => {
   assert.equal(await readFile(path.join(f.output, 'src/index.mjs'), 'utf8'), '新资源');
 });
 
+test('增加必需资源后仍可安全更新旧版受管输出', async t => {
+  const f = await fixture(t);
+  await build(f);
+  const marker = path.join(f.output, '.design-pal-codex-build.json');
+  const manifest = JSON.parse(await readFile(marker, 'utf8'));
+  manifest.files = manifest.files.filter(file => file !== 'src/preview/foundation.css');
+  await rm(path.join(f.output, 'src/preview/foundation.css'));
+  await writeFile(marker, JSON.stringify(manifest));
+  await build(f);
+  assert.equal(await readFile(path.join(f.output, 'src/preview/foundation.css'), 'utf8'), '测试资源：preview/foundation.css');
+});
+
 test('缺少必需资源或许可时失败，保留已有构建', async t => {
   const f = await fixture(t);
   await build(f);

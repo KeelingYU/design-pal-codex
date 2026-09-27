@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>design-pal-codex · 组件库预览</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../components/styles.css">
+  <link rel="stylesheet" href="preview.css">
+  <link rel="stylesheet" href="catalog-view.css">
+  <link rel="stylesheet" href="workbench-view.css">
+  <script type="module" src="preview.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#preview-panel">跳到预览</a>
+  <header class="tool-header" aria-label="预览控制">
+    <a class="brand" href="./index.html" aria-label="返回组件库首页">design-pal<span>.</span></a>
+    <div id="current-library" class="current-library"></div>
+    <div class="appearance"><span class="control-label">颜色主题</span><div id="color-tabs" class="color-tabs" role="tablist" aria-label="颜色主题"></div><div class="mode-picker" role="group" aria-label="显示模式"><button type="button" data-mode="light">亮色</button><button type="button" data-mode="dark">暗色</button></div></div>
+  </header>
+  <nav class="tool-subbar" aria-label="预览内容控制">
+    <div class="view-tabs" role="tablist" aria-label="预览内容"><button type="button" role="tab" id="tab-components" data-view="components" aria-controls="preview-panel">组件总览</button><button type="button" role="tab" id="tab-layout" data-view="layout" aria-controls="preview-panel">页面预览</button><button type="button" role="tab" id="tab-info" data-view="info" aria-controls="preview-panel">库说明</button></div>
+  </nav>
+  <div class="detail-shell">
+    <aside id="detail-sidebar" class="detail-sidebar" aria-label="预览侧栏"></aside>
+    <main id="preview-host"></main>
+  </div>
+</body>
+</html>

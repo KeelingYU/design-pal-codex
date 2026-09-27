@@ -1,6 +1,6 @@
 {
   "name": "design-pal-codex",
-  "version": "0.1.0-dev.2",
+  "version": "0.1.0-dev.3",
   "private": true,
   "license": "MIT",
   "engines": {
@@ -10,10 +10,11 @@
     "build": "node scripts/build.mjs",
     "preview": "node scripts/preview-server.mjs",
     "test": "node --test examples/preview/preview.test.cjs tests/unit/*.test.mjs",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "capture:previews": "node scripts/capture-previews.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"
   },
-  "description": "组件库交互样稿与可复用后台组件开发版"
+  "description": "组件库、配色与交互预览工具开发版"
 }

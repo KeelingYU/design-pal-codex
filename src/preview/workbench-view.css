@@ -1,0 +1,25 @@
+/* 仅适配独立组件的包裹节点，页面布局沿用已确认样稿。 */
+.dpc-root .workbench .search-box .dpc-field > label { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); margin:0; }
+.dpc-root .workbench .search-box .dpc-field-hint { display:none; }
+.dpc-root .workbench .search-box input { padding-left:36px; max-width:250px; min-width:180px; }
+.dpc-root .workbench .search-box > .icon { z-index:1; width:17px; }
+.dpc-root .workbench .workspace-nav .dpc-nav-glyph { display:inline-flex; }
+.dpc-root .edge-rail .workspace-nav .dpc-nav-label { display:none; }
+.dpc-root .edge-rail .workspace-nav button { justify-content:center; padding:12px 8px; }
+.dpc-root .workbench .project-table .dpc-btn { font-size:11px; }
+.dpc-root .workbench-open .dpc-button-glyph { order:1; }
+.dpc-root .workbench .card-top > .icon { width:32px; height:32px; }
+.dpc-root .workbench .edge-list .workbench-item { width:100%; min-height:0; background:none; border:0; border-bottom:1px solid var(--line); padding:19px; text-align:left; display:block; color:var(--text)!important; font-weight:400; font-size:14px; line-height:normal; letter-spacing:normal; border-radius:0; white-space:normal; }
+.dpc-root .workbench .edge-list .workbench-item[aria-pressed=true] { background:var(--tint); box-shadow:inset 3px 0 var(--accent); }
+.dpc-root .workbench .edge-list .workbench-item:hover { background:var(--raised); transform:none; }
+.dpc-root .workbench .edge-list .workbench-item:active { transform:none; }
+.dpc-root .workbench-detail-host { display:contents; }
+.dpc-root .workbench-dialog > h2 { font-size:10px; font-weight:400; line-height:normal; color:var(--muted); letter-spacing:1px; margin:0 0 17px; }
+.dpc-root .workbench-dialog .dpc-detail-content, .dpc-root .workbench-inline .dpc-detail-content { margin-top:0; font-size:inherit; line-height:normal; }
+.dpc-root .workbench-inline .dpc-detail-panel[data-detail-style=inline] { padding:0; border:0; margin:0; background:transparent; animation:none; }
+.dpc-root .workbench-inline .dpc-detail-panel > h2, .dpc-root .workbench-inline .dpc-detail-panel > p, .dpc-root .workbench-inline .dpc-detail-close, .dpc-root .workbench-inline .dpc-detail-actions { display:none; }
+.dpc-root .workbench .page-feedback { padding:70px 30px; text-align:center; min-height:350px; border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); }
+.dpc-root .workbench .page-feedback .dpc-state-label, .dpc-root .workbench .page-feedback .dpc-skeleton { display:none; }
+.dpc-root .workbench .page-feedback > .dpc-icon { width:34px; height:34px; color:var(--accent); margin-bottom:20px; }
+.dpc-root .workbench .page-feedback h2 { font-size:18px; margin-bottom:12px; }
+.dpc-root .workbench .page-feedback p { color:var(--muted); font-size:13px; line-height:1.8; margin:0 0 20px; }

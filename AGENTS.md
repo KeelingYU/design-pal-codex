@@ -1,7 +1,7 @@
 # 项目规则
 
-- 当前交付交互样稿、常用后台组件独立入口与开发验证目录；正式预览迁移、发行采用和 Agent 技能尚未交付，不能声称已经完成接入。
-- 原样稿入口为 `examples/preview/index.html`；组件用法见 `USAGE.md`。`npm run build` 构建，`npm run preview` 仅提供本机预览；`npm test` 跑状态和工具测试，`npm run test:browser` 跑浏览器回归。
+- 当前提供完整交互预览和常用后台组件独立入口；固定发行、项目采用和 Agent 技能尚未交付，不能声称已经完成接入。
+- 正式入口为 `src/preview/index.html`，详情为 `src/preview/preview.html`；原样稿 `examples/preview/` 仅供对照，正式代码不得导入它。组件用法见 `USAGE.md`。`npm run build` 构建，`npm run preview` 仅提供本机预览；`npm test` 跑状态和工具测试，`npm run test:browser` 跑浏览器回归。
 - 正式组件仅依赖 `src/`，禁止反向导入样稿代码；组件销毁时清理事件，多个区域互不影响，切色不重新创建控件。
 - 构建输出为受管的 `dist/`，不要手工放入其他资料；已有未知文件或目录时构建应拒绝覆盖。
 - 组件库控制结构与交互，库内配色与亮暗模式只改变颜色；切色保持当前输入、筛选与选择。
@@ -10,3 +10,5 @@
 - 修改图标时保留第三方许可与来源记录。
 
 - 新组件同步 `src/libraries/component-list.mjs` 及对应浏览器行为测试；新组的样式从统一样式入口导入，不能污染宿主样式。
+
+- 页面或库外观变更后运行 `npm run capture:previews`，逐件查看六张实际页面截图后再发布。主导航和配色切换保留组件实例，首页记忆只使用 design-pal-codex 命名的会话记录。

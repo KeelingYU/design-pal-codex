@@ -343,7 +343,7 @@ test('基础验证页在三个窗口宽度完整启动，六个示例独立保�
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const width of [1440, 1024, 820]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto('/');
+    await page.goto('/src/preview/foundation.html');
     await expect(page.getByRole('heading', { name: '把确认的设计，变成可复用的组件。', exact: true })).toBeVisible();
     await expect(page.locator('.library-section')).toHaveCount(3);
     await expect(page.locator('.instance')).toHaveCount(6);

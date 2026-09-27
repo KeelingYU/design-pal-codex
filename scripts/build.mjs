@@ -19,6 +19,19 @@ export const requiredFiles = [
   'libraries/catalog.mjs',
   'libraries/component-list.mjs',
   'preview/index.html',
+  'preview/gallery.mjs',
+  'preview/gallery.css',
+  'preview/gallery-state.mjs',
+  'preview/preview.html',
+  'preview/preview.mjs',
+  'preview/preview.css',
+  'preview/preview-state.mjs',
+  'preview/catalog-view.mjs',
+  'preview/catalog-view.css',
+  'preview/workbench-view.mjs',
+  'preview/workbench-view.css',
+  'preview/demo-data.mjs',
+  'preview/foundation.html',
   'preview/foundation.mjs',
   'preview/foundation.css',
   'preview/components.html',
@@ -55,7 +68,7 @@ export async function readBuildManifest(root) {
       || !manifest.files.every(file => typeof file === 'string' && file.startsWith('src/')
         && !file.includes('\\') && !file.split('/').some(part => !part || part === '.' || part === '..'))
       || new Set(manifest.files).size !== manifest.files.length
-      || !requiredFiles.every(file => manifest.files.includes(`src/${file}`))) {
+      || !['src/index.mjs', 'src/preview/index.html'].every(file => manifest.files.includes(file))) {
     throw new Error('受管目录标记无效');
   }
   return manifest;
