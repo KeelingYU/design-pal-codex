@@ -1,30 +1,24 @@
 # design-pal-codex
 
-面向电脑端工具类产品的组件库设计与交互预览项目。
+English · [简体中文](README.zh-CN.md)
 
-**当前为待验收的开发版。** 提供可复用组件、完整交互预览、不可覆盖的本地固定发行、项目采用与恢复、Codex／Claude Code 项目级技能安装。两端真实独立生成及最终验收必须另有证据，不能仅凭安装或自动测试宣称完成。
+Reusable UI component libraries and interactive previews for desktop web tools. The project supports design exploration and project adoption through Codex and Claude Code.
 
-## 已有内容
+**Development build; user acceptance is pending.** Both agents have generated pages in isolated test projects, but that does not establish compatibility with an arbitrary business application.
 
-- 规整、松弛、棱角三套设计方向；每套两种配色，均支持亮暗模式。
-- 组件库首页、配色轮播、产品类型筛选和库详情。
-- 表单、数据表格与筛选、导航、指标图表、弹层和反馈等交互示例。
-- 同一内容下的不同布局、详情方式、图标及动效；组件状态并列展示。
+## What is included
 
-所有项目、人员和指标均为虚构演示数据。文件选择只显示文件名，不上传或读取文件内容；复制、导出等菜单只展示反馈，不连接真实业务服务。
+- Three structurally distinct libraries, each with two color themes and light and dark modes: 12 combinations in all.
+- A library gallery, interactive component catalog, and comparable admin page previews. Form, table, navigation, chart, dialog, and feedback components can be mounted independently.
+- Fixed local releases with integrity checks, explicit project adoption, isolated customization, version upgrades, and recovery of confirmed work.
+- A shared `design-pal-codex` skill with project-scoped installation for Codex and Claude Code. Installation does not adopt a library on the user's behalf.
+- A fictional task-queue example and a comparable page before component adoption.
 
-## 可复用组件与原交互样稿
+All preview names, records, and metrics are fictional. Task controls, copy, and export examples do not call a model or a business service. Native desktop interfaces are outside the direct component target; one Electron development host has been tested, without shipping an installer.
 
-组件的运行、测试和使用方法见 [组件用法](USAGE.md)。构建后默认打开组件库首页，进入库详情比较组件状态、同类页面与交互，再切换当前库的配色和亮暗模式；原交互样稿继续保留作设计对照。
+## Run the source preview
 
-- [表单组件](FORMS.md)
-- [表格与筛选](TABLE.md)
-- [导航与结构](NAVIGATION.md)
-- [图表、弹层与反馈](FEEDBACK.md)
-
-## 正式预览本地运行
-
-需要 Node.js 24：
+Node.js 24 is required. From this repository:
 
 ```sh
 npm ci
@@ -32,41 +26,27 @@ npm run build
 npm run preview
 ```
 
-访问 <http://127.0.0.1:4173/>。开发服务器只监听本机。首页六张配色图来自实际页面；安装 Playwright 浏览器后，可运行 `npm run capture:previews` 重拍。
+Open <http://127.0.0.1:4173/>. The preview server listens only on the local machine. The original interaction prototype remains in `examples/preview/index.html` as a design reference.
 
-## 原样稿本地运行
+A fixed release can run without the development repository or dependency installation. See [fixed releases](RELEASE.md) for creation, verification, and preview commands. Review a concrete adoption plan and the actual preview before applying it to a project; see [project adoption and recovery](PROJECT.md). To install the skills without overwriting another tool, see [agent skills](SKILLS.md).
 
-下载仓库后，直接打开 `examples/preview/index.html`，或使用 Python 3 启动本地预览：
+## Components and examples
 
-```sh
-python3 -m http.server 8765 --bind 127.0.0.1 --directory examples/preview
-```
+The [component usage guide](USAGE.md) covers mounting and lifecycle. Detailed guides are available for [forms](FORMS.md), [tables](TABLE.md), [navigation](NAVIGATION.md), and [feedback](FEEDBACK.md). Those detailed guides currently use Chinese prose; the code examples and API names are unchanged.
 
-然后访问 <http://127.0.0.1:8765/>。静态预览无需安装依赖，也不调用远程图标服务。
+The [fictional application example](EXAMPLES.md) demonstrates search, filtering, pagination, editing, task details, and simulated state changes. It does not migrate a real project or perform a real model task.
 
-## 测试
-
-使用 Node.js 24 运行状态、配色、构建与本地服务测试：
+## Checks
 
 ```sh
 npm test
+npm run test:browser
 ```
 
-使用 `npm ci` 与 `npx playwright install chromium` 安装开发依赖和浏览器后，可运行 `npm run test:browser` 检查各组组件与样稿规则的一致性、12 种外观、键盘和焦点行为。测试范围不等于完整组件交付或 Agent 接入验收。
+The browser checks require Playwright Chromium; prepare it with `npx playwright install chromium`. Passing tests does not replace actual agent runs or the user's visual acceptance.
 
-## 工具名称
+## Naming and licenses
 
-本项目的技能、命令和后续 Agent 能力统一使用 `design-pal-codex` 前缀，以区分其他同类项目；不会注册通用的 `design-pal` 入口。技能通过专用安装工具从完整发行物安装；不要把整个仓库复制到技能目录。
+The package and its agent capability use the `design-pal-codex` prefix. The project does not register the generic `design-pal` skill name or replace another project's files. Published paths use English names; Chinese prose is available in the linked README.
 
-## 许可证与素材
-
-本项目源码采用 [MIT 许可证](LICENSE)。图标来自 Phosphor Icons，保留其独立的 [许可声明](examples/preview/assets/LICENSE-phosphor.txt)与[来源记录](examples/preview/assets/SOURCE.md)。预览图片由本项目的虚构示例页面生成。
-
-## 固定版本与项目使用
-
-- [固定发行](RELEASE.md)：独立运行、完整性检查及不可覆盖的版本。
-- [项目采用与恢复](PROJECT.md)：先展示具体计划，确认后采用、定制或恢复。
-- [两端技能](SKILLS.md)：项目级安装、同名保护和实际验证边界。
-- [新旧项目及个人 Agent 模拟示例](EXAMPLES.md)：保留业务操作的本地验证入口。
-
-源码可运行不表示任意真实业务项目都能直接换库。系统原生界面不在直接支持范围；网页桌面宿主仍须单独验证。
+The source is licensed under [MIT](LICENSE). The Phosphor Icons license and provenance are preserved in the [icon license](examples/preview/assets/LICENSE-phosphor.txt) and [source record](examples/preview/assets/SOURCE.md). Preview images were captured from fictional pages in this project.

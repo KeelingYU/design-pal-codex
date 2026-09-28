@@ -7,6 +7,10 @@
       "target": "README.md"
     },
     {
+      "source": "README.zh-CN.md",
+      "target": "README.zh-CN.md"
+    },
+    {
       "source": "AGENTS.md",
       "target": "AGENTS.md"
     },

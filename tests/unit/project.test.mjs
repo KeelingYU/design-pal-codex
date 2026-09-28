@@ -233,3 +233,26 @@ test('首次采用保持未确认草稿，但不误报未经改动的文件', as
   await write(root, 'design-pal-codex/custom/README.md', '已修改定制说明');
   assert.deepEqual((await projectStatus(root)).changed, ['design-pal-codex/custom/README.md']);
 });
+
+test('旧格式项目可使用新版工具升级，并恢复原有确认页面', async () => {
+  const old = path.join(sandbox, 'release-legacy');
+  await createRelease({ output: old, version: '0.1.0-legacy.1' });
+  const manifest = JSON.parse(await read(old, 'release.json'));
+  manifest.format = 1;
+  manifest.files = manifest.files.filter(file => file.path !== 'README.zh-CN.md');
+  await fs.rm(path.join(old, 'README.zh-CN.md'));
+  await write(old, 'release.json', JSON.stringify(manifest));
+  const root = await target();
+  await adopt(root, old);
+  await write(root, 'page.html', '<p>旧版已确认页面</p>');
+  const confirmation = await planConfirmation(root, ['page.html']);
+  await confirmProject(root, ['page.html'], confirmation.digest);
+  const upgrade = await planUpgrade(release, root, choice);
+  await upgradeProject(release, root, choice, upgrade.digest);
+  assert.equal((await projectStatus(root)).version, '0.1.0-test.1');
+  const restore = await planRestore(root);
+  await restoreProject(root, undefined, restore.digest);
+  assert.equal((await projectStatus(root)).version, '0.1.0-legacy.1');
+  assert.equal((await projectStatus(root)).status, 'confirmed');
+  assert.equal(await read(root, 'page.html'), '<p>旧版已确认页面</p>');
+});

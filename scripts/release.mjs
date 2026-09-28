@@ -10,7 +10,7 @@ const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 export const releaseManifestName = 'release.json';
 const versionPattern = /^\d+\.\d+\.\d+(?:-[a-z0-9]+(?:\.[a-z0-9]+)*)?$/;
 export const hash = bytes => createHash('sha256').update(bytes).digest('hex');
-const documents = ['README.md', 'USAGE.md', 'FORMS.md', 'TABLE.md', 'NAVIGATION.md', 'FEEDBACK.md', 'RELEASE.md', 'LICENSE'];
+const documents = ['README.md', 'README.zh-CN.md', 'USAGE.md', 'FORMS.md', 'TABLE.md', 'NAVIGATION.md', 'FEEDBACK.md', 'RELEASE.md', 'LICENSE'];
 function validPath(value) {
   return typeof value === 'string' && value.length > 0 && !/[\\:\x00-\x1f]/.test(value)
     && value.split('/').every(part => part && part !== '.' && part !== '..');
@@ -33,23 +33,27 @@ async function safeRead(root, relative) {
   }
   return readFile(current);
 }
-function minimumFiles() {
-  return [...requiredFiles.map(file => `src/${file}`), ...documents, markerName,
+function minimumFiles(format) {
+  const files = [...requiredFiles.filter(file => format === 2 || file !== 'assets/SOURCE.md').map(file => `src/${file}`),
+    ...documents.filter(file => format === 2 || file !== 'README.zh-CN.md'), markerName,
     'catalog.json', 'package.json', 'scripts/release.mjs', 'scripts/build.mjs', 'scripts/preview-server.mjs',
     'scripts/export-public.mjs', 'scripts/project.mjs', 'scripts/install-skills.mjs',
-    'PROJECT.md', 'SKILLS.md', 'EXAMPLES.md', 'src/assets/SOURCE.md',
-    'examples/preview/index.html', 'examples/preview/assets/SOURCE.md', 'skills/design-pal-codex/SKILL.md',
+    'PROJECT.md', 'SKILLS.md', 'EXAMPLES.md', 'skills/design-pal-codex/SKILL.md',
     'skills/design-pal-codex/agents/openai.yaml', 'skills/design-pal-codex/references/workflow.md',
     ...['index.html', 'baseline.html', 'page.css', 'page.mjs', 'baseline.mjs', 'model.mjs', 'serve.mjs'].map(file => `examples/acceptance/${file}`)];
+  if (format === 2) files.push('examples/preview/index.html', 'examples/preview/assets/SOURCE.md');
+  return files;
 }
+
 export async function verifyRelease(root) {
   const actual = await scan(root);
   const manifest = JSON.parse(await safeRead(root, releaseManifestName));
-  if (manifest.project !== 'design-pal-codex' || manifest.format !== 1 || !versionPattern.test(manifest.version)
+  if (manifest.project !== 'design-pal-codex' || ![1, 2].includes(manifest.format) || !versionPattern.test(manifest.version)
     || !Array.isArray(manifest.files) || !manifest.files.every(entry => validPath(entry.path) && /^[a-f0-9]{64}$/.test(entry.sha256))
     || new Set(manifest.files.map(entry => entry.path.toLowerCase())).size !== manifest.files.length) throw new Error('发行清单无效');
   const names = manifest.files.map(entry => entry.path);
-  if (minimumFiles().some(file => !names.includes(file))) throw new Error('发行缺少必需文件');
+  if (manifest.format === 2 && names.some(name => /[^\x00-\x7F]/.test(name))) throw new Error('新版发行清单必须使用英文路径');
+  if (minimumFiles(manifest.format).some(file => !names.includes(file))) throw new Error('发行缺少必需文件');
   if (actual.length !== names.length + 1 || actual.some(file => file !== releaseManifestName && !names.includes(file))) throw new Error('发行包含清单外文件或缺少文件');
   for (const entry of manifest.files) {
     if (hash(await safeRead(root, entry.path)) !== entry.sha256) throw new Error(`发行文件被修改：${entry.path}`);
@@ -115,7 +119,7 @@ export async function createRelease({ root = projectRoot, output, version } = {}
   entries.sort((a, b) => a.path.localeCompare(b.path, 'en'));
   // 清单顺序与运行服务器允许列表保持一致。
   entries.find(entry => entry.path === markerName).bytes = Buffer.from(JSON.stringify({ ...generated[markerName], files: entries.filter(entry => entry.path.startsWith('src/')).map(entry => entry.path) }, null, 2) + '\n');
-  const manifest = { project: 'design-pal-codex', format: 1, version, libraries: catalog, files: entries.map(entry => ({ path: entry.path, sha256: hash(entry.bytes) })) };
+  const manifest = { project: 'design-pal-codex', format: 2, version, libraries: catalog, files: entries.map(entry => ({ path: entry.path, sha256: hash(entry.bytes) })) };
   const staging = await mkdtemp(path.join(path.dirname(output), '.design-pal-codex-release-'));
   try {
     for (const entry of entries) {
