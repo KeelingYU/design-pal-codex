@@ -75,8 +75,8 @@
       "target": "examples/preview/assets/LICENSE-phosphor.txt"
     },
     {
-      "source": "examples/preview/assets/来源.md",
-      "target": "examples/preview/assets/来源.md"
+      "source": "examples/preview/assets/SOURCE.md",
+      "target": "examples/preview/assets/SOURCE.md"
     },
     {
       "source": "examples/preview/previews/order-indigo.jpg",
@@ -113,8 +113,8 @@
       "target": "src/assets/LICENSE-phosphor.txt"
     },
     {
-      "source": "src/assets/来源.md",
-      "target": "src/assets/来源.md"
+      "source": "src/assets/SOURCE.md",
+      "target": "src/assets/SOURCE.md"
     },
     {
       "source": "src/components/button.mjs",

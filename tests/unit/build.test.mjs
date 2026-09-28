@@ -56,6 +56,9 @@ test('缺少必需资源或许可时失败，保留已有构建', async t => {
   await rm(path.join(f.source, 'assets/LICENSE-phosphor.txt'));
   await assert.rejects(build(f), /缺少必需资源/);
   assert.equal(await readFile(path.join(f.output, 'src/index.mjs'), 'utf8'), '测试资源：index.mjs');
+  await writeFile(path.join(f.source, 'assets/LICENSE-phosphor.txt'), '许可测试内容');
+  await rm(path.join(f.source, 'assets/SOURCE.md'));
+  await assert.rejects(build(f), /缺少必需资源/);
 });
 
 test('拒绝覆盖非受管目录及受管目录中的额外文件', async t => {

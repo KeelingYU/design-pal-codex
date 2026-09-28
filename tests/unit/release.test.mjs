@@ -19,7 +19,7 @@ test('固定发行包含完整组合、文档和许可，可离开源码独立�
   await cp(f.output, independent, { recursive: true });
   const manifest = await verifyRelease(independent);
   assert.equal(manifest.libraries.flatMap(library => library.colors.flatMap(color => [color.light, color.dark])).length, 12);
-  assert(manifest.files.some(entry => entry.path === 'src/assets/LICENSE-phosphor.txt'));
+  for (const file of ['src/assets/LICENSE-phosphor.txt', 'src/assets/SOURCE.md', 'examples/preview/index.html', 'examples/preview/assets/SOURCE.md']) assert(manifest.files.some(entry => entry.path === file), file);
   assert(!manifest.files.some(entry => /^(?:docs|tests|node_modules|\.git)\//.test(entry.path)));
   const server = await startPreview({ root: independent, port: 0 });
   t.after(() => new Promise(resolve => server.close(resolve)));

@@ -17,6 +17,7 @@ function validatePath(value) {
       || value.split('/').some(part => !part || part === '.' || part === '..' || privatePart.test(part))) {
     throw new Error('白名单包含禁止公开或不规范的路径');
   }
+  if (/[^\x00-\x7F]/.test(value)) throw new Error('公开文件必须使用英文路径');
 }
 
 async function sourceFile(root, relative) {

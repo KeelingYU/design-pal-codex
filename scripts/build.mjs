@@ -38,6 +38,7 @@ export const requiredFiles = [
   'preview/components.mjs',
   'preview/components.css',
   'assets/LICENSE-phosphor.txt',
+  'assets/SOURCE.md',
 ];
 
 async function scan(root, relative = '', directories = []) {

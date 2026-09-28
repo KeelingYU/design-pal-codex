@@ -37,7 +37,8 @@ function minimumFiles() {
   return [...requiredFiles.map(file => `src/${file}`), ...documents, markerName,
     'catalog.json', 'package.json', 'scripts/release.mjs', 'scripts/build.mjs', 'scripts/preview-server.mjs',
     'scripts/export-public.mjs', 'scripts/project.mjs', 'scripts/install-skills.mjs',
-    'PROJECT.md', 'SKILLS.md', 'EXAMPLES.md', 'skills/design-pal-codex/SKILL.md',
+    'PROJECT.md', 'SKILLS.md', 'EXAMPLES.md', 'src/assets/SOURCE.md',
+    'examples/preview/index.html', 'examples/preview/assets/SOURCE.md', 'skills/design-pal-codex/SKILL.md',
     'skills/design-pal-codex/agents/openai.yaml', 'skills/design-pal-codex/references/workflow.md',
     ...['index.html', 'baseline.html', 'page.css', 'page.mjs', 'baseline.mjs', 'model.mjs', 'serve.mjs'].map(file => `examples/acceptance/${file}`)];
 }
@@ -91,7 +92,7 @@ export async function createRelease({ root = projectRoot, output, version } = {}
   }));
   const selected = whitelist.files.filter(entry => entry.target.startsWith('src/')
     || documents.includes(entry.target) || ['PROJECT.md', 'SKILLS.md', 'EXAMPLES.md'].includes(entry.target)
-    || entry.target.startsWith('skills/design-pal-codex/') || entry.target.startsWith('examples/acceptance/')
+    || entry.target.startsWith('skills/design-pal-codex/') || entry.target.startsWith('examples/preview/') || entry.target.startsWith('examples/acceptance/')
     || ['scripts/build.mjs', 'scripts/preview-server.mjs', 'scripts/export-public.mjs', 'scripts/release.mjs', 'scripts/project.mjs', 'scripts/install-skills.mjs'].includes(entry.target));
   const entries = [];
   const { exportPublic } = await import('./export-public.mjs');

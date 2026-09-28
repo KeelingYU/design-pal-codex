@@ -60,7 +60,7 @@ npm test
 
 ## 许可证与素材
 
-本项目源码采用 [MIT 许可证](LICENSE)。图标来自 Phosphor Icons，保留其独立的 [许可声明](examples/preview/assets/LICENSE-phosphor.txt)与[来源记录](examples/preview/assets/来源.md)。预览图片由本项目的虚构示例页面生成。
+本项目源码采用 [MIT 许可证](LICENSE)。图标来自 Phosphor Icons，保留其独立的 [许可声明](examples/preview/assets/LICENSE-phosphor.txt)与[来源记录](examples/preview/assets/SOURCE.md)。预览图片由本项目的虚构示例页面生成。
 
 ## 固定版本与项目使用
 
