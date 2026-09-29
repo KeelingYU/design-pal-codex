@@ -106,3 +106,14 @@ test('新增工作原理不使先前同格式固定发行失效', async t => {
   await writeFile(manifestFile, JSON.stringify(manifest));
   assert.equal((await verifyRelease(f.output)).version, f.manifest.version);
 });
+
+test('正式发行两版首页说明与工作原理的本地链接均可打开', async t => {
+  const f = await fixture(t);
+  for (const source of ['README.md', 'README.zh-CN.md', 'HOW-IT-WORKS.md']) {
+    const body = await readFile(path.join(f.output, source), 'utf8');
+    for (const [, link] of body.matchAll(/\]\(([^)]+)\)/g)) {
+      if (/^(?:https?:|#)/.test(link)) continue;
+      await readFile(path.join(f.output, link.split('#')[0]));
+    }
+  }
+});
