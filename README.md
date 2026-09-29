@@ -4,7 +4,7 @@ English · [简体中文](README.zh-CN.md)
 
 Reusable UI component libraries and interactive previews for desktop web tools. The project supports design exploration and project adoption through Codex and Claude Code.
 
-**Development build; user acceptance is pending.** Both agents have generated pages in isolated test projects, but that does not establish compatibility with an arbitrary business application.
+**Version 0.1.0 was accepted by the user on 2026-09-29.** Both agents generated pages in isolated test projects. Acceptance covers the stated local tool scope; it does not establish compatibility with an arbitrary business application.
 
 ## What is included
 
@@ -32,7 +32,7 @@ A fixed release can run without the development repository or dependency install
 
 ## Components and examples
 
-The [component usage guide](USAGE.md) covers mounting and lifecycle. Detailed guides are available for [forms](FORMS.md), [tables](TABLE.md), [navigation](NAVIGATION.md), and [feedback](FEEDBACK.md). Those detailed guides currently use Chinese prose; the code examples and API names are unchanged.
+The [how-it-works guide](HOW-IT-WORKS.md) explains the user flow and version boundaries in Chinese. The [component usage guide](USAGE.md) covers mounting and lifecycle. Detailed guides are available for [forms](FORMS.md), [tables](TABLE.md), [navigation](NAVIGATION.md), and [feedback](FEEDBACK.md). Those detailed guides currently use Chinese prose; the code examples and API names are unchanged.
 
 The [fictional application example](EXAMPLES.md) demonstrates search, filtering, pagination, editing, task details, and simulated state changes. It does not migrate a real project or perform a real model task.
 

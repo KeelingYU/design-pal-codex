@@ -11,6 +11,10 @@
       "target": "README.zh-CN.md"
     },
     {
+      "source": "HOW-IT-WORKS.md",
+      "target": "HOW-IT-WORKS.md"
+    },
+    {
       "source": "AGENTS.md",
       "target": "AGENTS.md"
     },

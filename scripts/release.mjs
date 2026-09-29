@@ -95,7 +95,7 @@ export async function createRelease({ root = projectRoot, output, version } = {}
     return readFile(path.join(root, 'release-files.json'));
   }));
   const selected = whitelist.files.filter(entry => entry.target.startsWith('src/')
-    || documents.includes(entry.target) || ['PROJECT.md', 'SKILLS.md', 'EXAMPLES.md'].includes(entry.target)
+    || documents.includes(entry.target) || ['PROJECT.md', 'SKILLS.md', 'EXAMPLES.md', 'HOW-IT-WORKS.md'].includes(entry.target)
     || entry.target.startsWith('skills/design-pal-codex/') || entry.target.startsWith('examples/preview/') || entry.target.startsWith('examples/acceptance/')
     || ['scripts/build.mjs', 'scripts/preview-server.mjs', 'scripts/export-public.mjs', 'scripts/release.mjs', 'scripts/project.mjs', 'scripts/install-skills.mjs'].includes(entry.target));
   const entries = [];
@@ -144,7 +144,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const [command, value, extra] = process.argv.slice(2);
   if (command === 'create' && value && !extra) {
     const manifest = await createRelease({ version: value });
-    console.log(`已生成本地候选发行 ${manifest.version}，${manifest.files.length} 个文件；尚不代表用户验收通过。`);
+    console.log(`已生成本地固定发行 ${manifest.version}，${manifest.files.length} 个文件；具体项目采用仍须由用户确认。`);
   } else if (command === 'verify' && value && !extra) {
     const manifest = await verifyRelease(path.resolve(value));
     console.log(`完整性检查通过：${manifest.version}，${manifest.files.length} 个文件。`);

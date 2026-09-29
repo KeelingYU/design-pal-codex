@@ -19,7 +19,7 @@ test('固定发行包含完整组合、文档和许可，可离开源码独立�
   await cp(f.output, independent, { recursive: true });
   const manifest = await verifyRelease(independent);
   assert.equal(manifest.libraries.flatMap(library => library.colors.flatMap(color => [color.light, color.dark])).length, 12);
-  for (const file of ['README.md', 'README.zh-CN.md', 'src/assets/LICENSE-phosphor.txt', 'src/assets/SOURCE.md', 'examples/preview/index.html', 'examples/preview/assets/SOURCE.md']) assert(manifest.files.some(entry => entry.path === file), file);
+  for (const file of ['README.md', 'README.zh-CN.md', 'HOW-IT-WORKS.md', 'src/assets/LICENSE-phosphor.txt', 'src/assets/SOURCE.md', 'examples/preview/index.html', 'examples/preview/assets/SOURCE.md']) assert(manifest.files.some(entry => entry.path === file), file);
   assert(!manifest.files.some(entry => /^(?:docs|tests|node_modules|\.git)\//.test(entry.path)));
   const server = await startPreview({ root: independent, port: 0 });
   t.after(() => new Promise(resolve => server.close(resolve)));
@@ -91,6 +91,18 @@ test('旧格式发行缺少新增双语说明时仍可按自身清单校验', as
   manifest.format = 1;
   manifest.files = manifest.files.filter(entry => entry.path !== 'README.zh-CN.md');
   await rm(path.join(f.output, 'README.zh-CN.md'));
+  await writeFile(manifestFile, JSON.stringify(manifest));
+  assert.equal((await verifyRelease(f.output)).version, f.manifest.version);
+});
+
+
+test('新增工作原理不使先前同格式固定发行失效', async t => {
+  const f = await fixture(t);
+  const file = 'HOW-IT-WORKS.md';
+  const manifestFile = path.join(f.output, 'release.json');
+  const manifest = JSON.parse(await readFile(manifestFile));
+  manifest.files = manifest.files.filter(entry => entry.path !== file);
+  await rm(path.join(f.output, file));
   await writeFile(manifestFile, JSON.stringify(manifest));
   assert.equal((await verifyRelease(f.output)).version, f.manifest.version);
 });
